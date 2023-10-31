@@ -1,7 +1,7 @@
 # Contibutors
 ## Additional Features and Contributors
 
-These is a list of all the people that contributed to the additional features on this project.
+This is a list of everyone that contributed to the additional features on this project.
 
  * Ekundayo Omotehinse
  * Likith Reddy Kandula
