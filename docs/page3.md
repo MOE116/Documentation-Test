@@ -1,4 +1,4 @@
-# Contibutors
+# Contributors
 ## Additional Features and Contributors
 
 This is a list of everyone that contributed to the additional features on this project.
