@@ -2,42 +2,50 @@
 ## In-game Background Music
 To implement this feature, a music file was added to the resources folder and a class  `MusicSettings` was added to the code to control the music playback actions. 
 ``` cs title="MusicSettings Class"
-    public static class MusicSettings
-    {
-        public static SoundPlayer bgMusicPlayer;
-        private static bool isBackgroundMusicPlaying = false;
-
-        static MusicSettings()
-        {
-            // Initialize the background music player
-            bgMusicPlayer = new System.Media.SoundPlayer(Resources.ShootToThrill); // call the music file from Resource using the file name
-        }
-        public static void PlayBackgroundMusic()
-        {
-            if (bgMusicPlayer != null && !isBackgroundMusicPlaying)
-            {
-                bgMusicPlayer.PlayLooping(); // start and loop the music playback
-                isBackgroundMusicPlaying = true;
-            }
-        }
-        public static void StopBackgroundMusic()
-        {
-            if (bgMusicPlayer != null && isBackgroundMusicPlaying)
-            {
-                bgMusicPlayer.Stop(); // stop music playback
-                isBackgroundMusicPlaying = false;
-            }
-        }
-    }
-
+     static MusicSettings()
+ {
+     // Initialize the background music player
+     bgMusicPlayerMainMenu = new SoundPlayer(Resources.paintheme);
+     bgMusicPlayerLevel = new SoundPlayer(Resources.ShootToThrill); // Replace with the actual resource name
+ }
+ public static void PlayBackgroundMusicMainMenu()
+ {
+     if (bgMusicPlayerMainMenu != null && !isBackgroundMusicPlaying)
+     {
+         bgMusicPlayerMainMenu.PlayLooping();
+         isBackgroundMusicPlaying = true;
+     }
+ }
+ public static void PlayBackgroundMusicLevel()
+ {
+     if (bgMusicPlayerLevel != null && !isBackgroundMusicPlaying)
+     {
+         bgMusicPlayerLevel.PlayLooping();
+         isBackgroundMusicPlaying = true;
+     }
+ }
+ public static void StopBackgroundMusic()
+ {
+     if (bgMusicPlayerMainMenu != null && isBackgroundMusicPlaying)
+     {
+         bgMusicPlayerMainMenu.Stop();
+         isBackgroundMusicPlaying = false;
+     }
+     if (bgMusicPlayerLevel != null && isBackgroundMusicPlaying)
+     {
+         bgMusicPlayerLevel.Stop();
+         isBackgroundMusicPlaying = false;
+     }
+ }
 ```
 The methods defined in the class are used to start the music when the gams strarts, stop the music when the final boss battle is initialised and restart the music after
 ### Code for music in FrmLevel 
-``` cs  hl_lines="4" title="Start Background Music"
+``` cs  hl_lines="5" title="Start Background Music"
       private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
-      MusicSettings.PlayBackgroundMusic(); // start in-game music
+const int PADDING = 7;
+const int NUM_WALLS = 19;
+  MusicSettings.StopBackgroundMusic();
+  MusicSettings.PlayBackgroundMusicLevel();
 ```
 
 ### Code for music in FrmBattle
@@ -60,7 +68,7 @@ The methods defined in the class are used to start the music when the gams strar
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
-      MusicSettings.PlayBackgroundMusic();  //restart background music
+      MusicSettings.PlayBackgroundMusicLevel();  //restart background music
 
     }
 
@@ -247,3 +255,19 @@ private void button1_Click(object sender, EventArgs e)    //Exit application
 }
 
 ```
+
+## Ingame Adverts
+This feature allows the developer to display advertisments to the user when they are playing the game.
+To implement this feature, a panel was added to the FrmBattle.Designer.cs.
+The function `Advisible` takes the color of the battle form background as an input to determine which advertisment image to display on the AD-panel
+and which url to redirect to when clicked.
+A method was designed to handle the panel click event as well, `advertisingPanel_Click`.
+To close the advert, a textbox was added to the panel. The textbox is designed to cycle through the string values in a list.
+At the end of the cycle the user can close the advert panel by clicking on the  box. The method `AdClose_Click` handles the click event to close 
+the ad panel.
+
+## Game-Story.
+The Game story is designed to present the player with the story behind the game and provide context for Mr Peanut's circumstances and objectives.
+The game story is implemented in a form, `FrmMainMenu`.
+A text box was added to the `FrmMainMenu` designer to display the story in lines of text the continues to cycle through the entire story as long as the MainMenu is open.
+The `scrolltimer` timer was added to the FrmMainMenu.designer to control the speed of the storyline cycle.
