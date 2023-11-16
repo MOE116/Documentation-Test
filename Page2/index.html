@@ -528,6 +528,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#textured-walls-and-floor" class="md-nav__link">
+    Textured Walls and Floor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#items-interactions-and-stats-change" class="md-nav__link">
+    Items interactions and stats change
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-menu-page" class="md-nav__link">
+    Main Menu Page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#game-over-screen" class="md-nav__link">
     Game Over Screen
   </a>
@@ -824,6 +845,16 @@ the ad panel.</p>
 The game story is implemented in a form, <code>FrmMainMenu</code>.
 A text box was added to the <code>FrmMainMenu</code> designer to display the story in lines of text the continues to cycle through the entire story as long as the MainMenu is open.
 The <code>scrolltimer</code> timer was added to the FrmMainMenu.designer to control the speed of the storyline cycle.</p>
+<h2 id="textured-walls-and-floor">Textured Walls and Floor</h2>
+<p>Added Wall.png to Resource.resx and data library and further changed it in FrmLevel.cs. included a background floor texture in FrmLevelDesigner.cs and Implemented new collision logic for the new wall texture. </p>
+<h2 id="items-interactions-and-stats-change">Items interactions and stats change</h2>
+<p>Created a new item in FrmLevel.cs Added a PictureBox of a Knife and made it be able to pick up and increase the player’s attack power by multifold. Made changes to FrmLevel.cs FrmDesigner.cs, FrmBattleCharacter. 
+Inside FrmLevel.cs </p>
+<p><img alt="knife.png is the image" src="../images/knife.png" /></p>
+<h2 id="main-menu-page">Main Menu Page</h2>
+<p>Created a new Windows form <code>FrmMainMenu.cs</code> to implement the main menu and called it to program.cs to ensure that main menu window pops up when game starts. It displays a start button and has a tutorial button. Methods <code>StartBtn_Click</code> and <code>button1_Click</code> were created in <code>FrmMainMenu.cs</code> to handle the button_click event for both buttons respectively. </p>
+<p><img alt="MainMenu.png is the image" src="../images/MainMenu.png" /></p>
+<p><img alt="Tutorial.png is the image" src="../images/Tutorial.png" /></p>
 <h2 id="game-over-screen">Game Over Screen</h2>
 <p>This feature was added to the <code>Frmbattle.cs</code> code. This feature lets the player know the game has come to completion, a new form that will be displayed when the game ends. This form  show message <code>Game Over</code> , along with option to restart the game.</p>
 <p><img alt="Gameover.png is the image" src="../images/Gameover.png" /></p>
