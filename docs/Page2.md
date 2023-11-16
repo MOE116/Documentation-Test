@@ -113,7 +113,7 @@ To implement this feature changes were made to `FrmLevel.cs` Class inside the `m
 ## Character Heal
 In this feature the player character is able to increase their healthcount by clicking on heal button which was created in `FrmBattle.Designer.cs` and `FrmBattle.cs`. 
 ### In FrmBattle.cs Class
-``` cs
+``` cs 
 private int healCount = 0;   //Heal count for heal button added
 ```
 This integer variable keeps count of number of heals player has used.
@@ -274,10 +274,62 @@ The `scrolltimer` timer was added to the FrmMainMenu.designer to control the spe
 
 ## Textured Walls and Floor
 Added Wall.png to Resource.resx and data library and further changed it in FrmLevel.cs. included a background floor texture in FrmLevelDesigner.cs and Implemented new collision logic for the new wall texture. 
+Inside FrmLevel.cs in FrmLevel_Load
+``` cs title="code for new texture and walls"
 
+            walls = new Character[NUM_WALLS];
+
+            // Loop over control names that could represent walls
+            string[] wallNames = new string[] {
+    "picWall0", "picWall1", "picWall2", "picWall3", "picWall4", "picWall5",
+    "picWall6", "picWall7", "picWall8", "picWall9", "picWall10", "picWall11",
+    "picWall14", "pictureBox1", "pictureBox2", "pictureBox4", "picWall12", "pictureBox3"
+};
+
+            for (int w = 0, index = 0; w < wallNames.Length; w++) 
+            {
+                Control[] foundControls = Controls.Find(wallNames[w], true);
+                if (foundControls.Length > 0)
+                {
+                    PictureBox pic = foundControls[0] as PictureBox;
+                    walls[index++] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                }
+                else
+                {
+                    // Log or handle the case where a PictureBox is not found
+                    Debug.WriteLine("PictureBox not found: " + wallNames[w]);
+                }
+            }
+```
 ## Items interactions and stats change
 Created a new item in FrmLevel.cs Added a PictureBox of a Knife and made it be able to pick up and increase the player’s attack power by multifold. Made changes to FrmLevel.cs FrmDesigner.cs, FrmBattleCharacter. 
 Inside FrmLevel.cs 
+```cs 
+private bool hasKnife = false;
+  private void PickUpKnife()
+  {
+      hasKnife = true;
+      picKnife.Visible = false; // Hides the knife from the game world
+      player.AttackPower += 0.5f; // Increases attack power
+      MessageBox.Show("You picked up the knife! Your attack power has increased.", "Knife Acquired", MessageBoxButtons.OK, MessageBoxIcon.Information);
+  }
+
+Inside BattleCharacter.cs 
+
+public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
+{
+    MaxHealth = 20;
+    strength = 2;
+    Health = MaxHealth;
+    AttackPower = 1; // Default attack power
+}
+
+public void OnAttack(int amount)
+{
+    AttackEvent((int)(amount * strength * AttackPower)); // Use AttackPower in calculation
+}
+
+```
 
 ![knife.png is the image](images/knife.png)
 
