@@ -247,7 +247,7 @@ protected override bool ProcessCmdKey(ref Message msg, Keys keydata)     //Movem
 ## Exit Button (to go out of the game)
 This feature was added to the FrmBattle.cs code. This feature allows the player to Exit from a battle, by clicking a button on the battle screen. The button click event is controlled by a method `button1_Click`. The method closes the Game window in the event of a click on the "Exit" button.
 
-### CODE
+### Code
 ``` cs
 private void button1_Click(object sender, EventArgs e)    //Exit application
 {
@@ -271,3 +271,15 @@ The Game story is designed to present the player with the story behind the game 
 The game story is implemented in a form, `FrmMainMenu`.
 A text box was added to the `FrmMainMenu` designer to display the story in lines of text the continues to cycle through the entire story as long as the MainMenu is open.
 The `scrolltimer` timer was added to the FrmMainMenu.designer to control the speed of the storyline cycle.
+
+## Game Over Screen
+This feature was added to the `Frmbattle.cs` code. This feature lets the player know the game has come to completion, a new form that will be displayed when the game ends. This form  show message `Game Over` , along with option to restart the game.
+
+![Gameover.png is the image](images/Gameover.png)
+
+## Always Visible Player Health Status
+	
+This feature was added to the FrmLevel.cs code. This feature allows the player to monitor player health throughout the game, This feature enhances the gaming experience, adding to the game's strategy. A user interface element (PlayerHealth)  was added and updated it based on the player's health status.
+
+![Health.png is the image](images/Health.png)
+
