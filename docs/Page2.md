@@ -272,6 +272,22 @@ The game story is implemented in a form, `FrmMainMenu`.
 A text box was added to the `FrmMainMenu` designer to display the story in lines of text the continues to cycle through the entire story as long as the MainMenu is open.
 The `scrolltimer` timer was added to the FrmMainMenu.designer to control the speed of the storyline cycle.
 
+## Textured Walls and Floor
+Added Wall.png to Resource.resx and data library and further changed it in FrmLevel.cs. included a background floor texture in FrmLevelDesigner.cs and Implemented new collision logic for the new wall texture. 
+
+## Items interactions and stats change
+Created a new item in FrmLevel.cs Added a PictureBox of a Knife and made it be able to pick up and increase the player’s attack power by multifold. Made changes to FrmLevel.cs FrmDesigner.cs, FrmBattleCharacter. 
+Inside FrmLevel.cs 
+
+![knife.png is the image](images/knife.png)
+
+## Main Menu Page
+Created a new Windows form `FrmMainMenu.cs` to implement the main menu and called it to program.cs to ensure that main menu window pops up when game starts. It displays a start button and has a tutorial button. Methods `StartBtn_Click` and `button1_Click` were created in `FrmMainMenu.cs` to handle the button_click event for both buttons respectively. 
+
+![MainMenu.png is the image](images/MainMenu.png)
+
+![Tutorial.png is the image](images/Tutorial.png)
+
 ## Game Over Screen
 This feature was added to the `Frmbattle.cs` code. This feature lets the player know the game has come to completion, a new form that will be displayed when the game ends. This form  show message `Game Over` , along with option to restart the game.
 
@@ -282,4 +298,6 @@ This feature was added to the `Frmbattle.cs` code. This feature lets the player 
 This feature was added to the FrmLevel.cs code. This feature allows the player to monitor player health throughout the game, This feature enhances the gaming experience, adding to the game's strategy. A user interface element (PlayerHealth)  was added and updated it based on the player's health status.
 
 ![Health.png is the image](images/Health.png)
+
+
 
