@@ -20,7 +20,7 @@
     
     
       
-        <title>Features - My Docs</title>
+        <title>Features - STLM Documentation</title>
       
     
     
@@ -87,9 +87,11 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="STLM Documentation" class="md-header__button md-logo" aria-label="STLM Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            STLM Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -186,14 +188,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -254,7 +250,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -275,13 +277,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="STLM Documentation" class="md-nav__button md-logo" aria-label="STLM Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    STLM Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -501,7 +503,7 @@
         
           <li class="md-nav__item">
   <a href="#code_2" class="md-nav__link">
-    CODE
+    Code
   </a>
   
 </li>
@@ -521,6 +523,20 @@
         <li class="md-nav__item">
   <a href="#game-story" class="md-nav__link">
     Game-Story.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-over-screen" class="md-nav__link">
+    Game Over Screen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#always-visible-player-health-status" class="md-nav__link">
+    Always Visible Player Health Status
   </a>
   
 </li>
@@ -788,7 +804,7 @@ As the pause button was having more focus to shift the focus from pause button t
 </code></pre></div></p>
 <h2 id="exit-button-to-go-out-of-the-game">Exit Button (to go out of the game)</h2>
 <p>This feature was added to the FrmBattle.cs code. This feature allows the player to Exit from a battle, by clicking a button on the battle screen. The button click event is controlled by a method <code>button1_Click</code>. The method closes the Game window in the event of a click on the "Exit" button.</p>
-<h3 id="code_2">CODE</h3>
+<h3 id="code_2">Code</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">button1_Click</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w">    </span><span class="c1">//Exit application</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">Application</span><span class="p">.</span><span class="n">Exit</span><span class="p">();</span>
@@ -808,6 +824,12 @@ the ad panel.</p>
 The game story is implemented in a form, <code>FrmMainMenu</code>.
 A text box was added to the <code>FrmMainMenu</code> designer to display the story in lines of text the continues to cycle through the entire story as long as the MainMenu is open.
 The <code>scrolltimer</code> timer was added to the FrmMainMenu.designer to control the speed of the storyline cycle.</p>
+<h2 id="game-over-screen">Game Over Screen</h2>
+<p>This feature was added to the <code>Frmbattle.cs</code> code. This feature lets the player know the game has come to completion, a new form that will be displayed when the game ends. This form  show message <code>Game Over</code> , along with option to restart the game.</p>
+<p><img alt="Gameover.png is the image" src="../images/Gameover.png" /></p>
+<h2 id="always-visible-player-health-status">Always Visible Player Health Status</h2>
+<p>This feature was added to the FrmLevel.cs code. This feature allows the player to monitor player health throughout the game, This feature enhances the gaming experience, adding to the game's strategy. A user interface element (PlayerHealth)  was added and updated it based on the player's health status.</p>
+<p><img alt="Health.png is the image" src="../images/Health.png" /></p>
 
 
 
@@ -854,7 +876,7 @@ The <code>scrolltimer</code> timer was added to the FrmMainMenu.designer to cont
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
